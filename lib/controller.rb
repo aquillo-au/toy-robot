@@ -7,6 +7,8 @@ class Controller
   end
 
   def place
+    return @view.robot_already_placed if %w[north south east west].include?(facing)
+
     x_axis = @view.ask_for_x_position
     y_axis = @view.ask_for_y_position
     facing = @view.ask_for_robot_facing
