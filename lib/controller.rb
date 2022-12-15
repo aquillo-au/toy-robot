@@ -10,7 +10,12 @@ class Controller
     x_axis = @view.ask_for_x_position
     y_axis = @view.ask_for_y_position
     facing = @view.ask_for_robot_facing
-    check_answers(x_axis, y_axis, facing)
+    until x_axis.between?(0, 4) && y_axis.between?(0, 4) && %w[north south east west].include?(facing)
+      x_axis = @view.ask_for_x_position unless x_axis.between?(0, 4)
+      y_axis = @view.ask_for_y_position unless y_axis.between?(0, 4)
+      facing = @view.ask_for_robot_facing unless %w[north south east west].include?(facing)
+    end
+    start_robot(x_axis, y_axis, facing)
   end
 
   def report
@@ -47,13 +52,6 @@ class Controller
   end
 
   private
-
-  def check_answers(x_axis, y_axis, facing)
-    x_axis = @view.ask_for_x_position unless x_axis.between?(0, 4)
-    y_axis = @view.ask_for_y_position unless y_axis.between?(0, 4)
-    facing = @view.ask_for_robot_facing unless %w[north south east west].include?(facing)
-    start_robot(x_axis, y_axis, facing)
-  end
 
   def start_robot(x_axis, y_axis, facing)
     @robot.x = x_axis

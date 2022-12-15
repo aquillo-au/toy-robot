@@ -5,9 +5,13 @@ class Router
   end
 
   def run
-    puts 'Welcome to toy robot'
-    puts '           --       '
-
+    puts '      Welcome to toy'
+    puts '           _           _'
+    puts '          | |         | |'
+    puts ' _ __ ___ | |__   ___ | |_'
+    puts "| '__/ _ \\| '_ \\ / _ \\| __|"
+    puts '| | | (_) | |_) | (_) | |_'
+    puts '|_|  \___/|_.__/ \___/ \__|'
     while @running
       display_tasks
       action = gets.chomp.to_i
