@@ -33,4 +33,8 @@ class View
   def robot_now_facing(robot)
     puts "The robot is now facing #{robot.facing}"
   end
+
+  def robot_already_placed
+    puts "The robot is already on the board"
+  end
 end
